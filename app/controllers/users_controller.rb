@@ -20,9 +20,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+      flash[:success] = "Account successfully created!"
+      log_in @user
+      redirect_to "https://cpsc-113-social-todo-ruby-2-collinbentley1.c9users.io"
     else
       render 'new'
     end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to @user
+      redirect_to @users
     else
       render 'edit'
     end
