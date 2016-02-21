@@ -1,7 +1,20 @@
 <%= form_for(@micropost, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    <%= f.text_area :description, placeholder: "Compose new todo description..." %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+    <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new todo content..." %>
+  </div>
+      <div class="field">
+    <%= f.text_area :collab1, placeholder: "Add your first collaborator..." %>
+    <%= f.text_area :collab2, placeholder: "Add your second collaborator..." %>
+    <%= f.text_area :collab3, placeholder: "Add your final collaborator..." %>
+user = find_by_username(username)
+
+  </div>
+  
+  
+  
+  <%= f.submit "Add", class: "btn btn-primary" %>
 <% end %>
