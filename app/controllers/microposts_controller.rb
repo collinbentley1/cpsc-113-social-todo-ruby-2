@@ -4,6 +4,12 @@ class MicropostsController < ApplicationController
   
   def create
     @micropost = current_user.microposts.build(micropost_params)
+    # @collab1 = User.find_by(email: "april@gmail.com")
+    # @micropost.collab1 = @collab1.id
+    # # @micropost.collab2 = User.find_by(email: params[:collab2]).id
+    # # @micropost.collab3 = User.find_by(email: params[:collab3]).id
+    # @micropost.description = params[:description]
+    # @micropost.content = params[:content]
     if @micropost.save
       flash[:success] = "Task created!"
       redirect_to root_url
@@ -26,16 +32,17 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
   
-  def complete
-      @micropost.destroy
-      flash[:success] = "Task completed"
-    redirect_to request.referrer || root_url
-  end
+def complete
+   @micropost.destroy
+   flash[:success] = "Task completed!"
+  redirect_to request.referrer || root_url
+end
+
   
   private
     
     def micropost_params
-      params.require(:micropost).permit(:content, :picture)
+      params.require(:micropost).permit(:content, :collab1, :collab2, :collab3, :description, :picture)
     end
     
     def correct_user
