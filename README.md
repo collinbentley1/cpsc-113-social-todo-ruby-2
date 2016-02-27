@@ -1,6 +1,14 @@
 Initialize the application on Cloud9 with
         rails server -b $IP -p $PORT
 
+
+I followed the tutorial on railstutorial.org, and you can see this attempt
+at https://github.com/collinbentley1/cpsc-113-social-todo-ruby
+
+But in the end, I got to the point where my app wouldn't even start, so
+I cloned the code from the railstutorial.
+
+
 Unfortunately, I have no idea how to make the Complete and Collaboration functions
 to work. I met with April, and we worked through the problem, but I wasn't able
 to implement these functions on my own. I really wanted to learn Rails, and I
